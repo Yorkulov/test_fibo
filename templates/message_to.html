@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Message</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter your message</h2>
+        <form action="" method="POST">  {% csrf_token %} 
+            {{form}}
+            <button type="submit">Send</button>
+        </form>
+        <h2>New messages</h2>
+        <div class="messages">
+            {% for message in messages %}
+                {% if messages %}
+                    <h1>{{message.text}}</h1>
+                    <p>{{message.from_user}} <span>{{message.datetime}}</span></p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
